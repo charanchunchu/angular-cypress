@@ -1,0 +1,109 @@
+<div class="container">
+  <div style="text-align:center">
+    <h2>SIGN-UP</h2>
+  </div>
+  <div class="row">
+    <div class="column">
+      <img src="assets/welcome.jpg"  style="width:100%">
+    </div>
+
+<div class="col-md-6">
+  <form [formGroup]="registrationform" (ngSubmit)="onSubmit()">
+    <div class="mb-2">
+      <div class="form-group">
+      <label for="FirstName" class="form-label">First Name <span>*</span></label>
+      <input type="text"  formControlName="FirstName" class="form-control" id="FirstName"  [ngClass]="{ 'is-invalid': submitted && f['FirstName'].errors }" aria-describedby="FirstName">
+      <div *ngIf="submitted && f['FirstName'].errors" class="invalid-feedback">
+        <div *ngIf="f['FirstName'].errors['required']">firstname is required</div>
+      </div>
+    </div>
+  </div>
+    <div class="mb-2">
+      <div class="form-group">
+      <label for="LastName" class="form-label">Last Name</label>
+      <input type="text" class="form-control" id="LastName" aria-describedby="LastName">
+      </div>
+    </div>
+    <div class="mb-2">
+      <div class="form-group">
+      <label for="exampleInputEmail1" class="form-label">Email address<span>*</span></label>
+      <input type="email"  formControlName="email" class="form-control"  [ngClass]="{ 'is-invalid': submitted && f['email'].errors }" id="exampleInputEmail1" aria-describedby="emailHelp">
+      <div *ngIf="submitted && f['email'].errors" class="invalid-feedback">
+        <div *ngIf="f['email'].errors['required']">Email is required</div>
+        <div *ngIf="f['email'].errors['pattern']">Invalid email</div>
+      </div>
+    </div>
+    </div>
+    <div class="mb-2">
+      <div class="form-group">
+      <label for="Mobile" class="form-label">Mobile Number<span>*</span></label>
+      <input type="number"  formControlName="Mobile" class="form-control"  required [ngClass]="{ 'is-invalid': submitted && f['Mobile'].errors }"  id="Mobile" aria-describedby="Mobile">
+      <div *ngIf="submitted && f['Mobile'].errors" class="invalid-feedback">
+        <div *ngIf="f['Mobile'].errors['required']">Mobile is required</div>
+        <div *ngIf="f['Mobile'].errors['pattern']">Please,Enter Valid Mobile Number.</div>
+      </div>
+    </div>
+    </div>
+    <div class="mb-2">
+      <div class="form-group">
+        <label for="city" class="form-label">city<span>*</span></label>
+        <select class="form-control"  [ngClass]="{ 'is-invalid': submitted && f['city'].errors }" formControlName="city"  id="city">
+         <option>Choose your city</option>
+         <option>Chennai</option>
+         <option>Hydrabad</option>
+         <option>Delhi</option>
+         <option>Mumbai</option>
+        </select>
+        <div *ngIf="submitted && f['city'].errors" class="invalid-feedback">
+          <small *ngIf="f['city'].errors['required']" >Select City</small>
+        </div>
+      </div>
+      </div>
+      <div class="mb-2">
+        <div class="form-group">
+          <label for="gender" class="form-label">Gender<span>*</span></label>
+          <br/>
+          <div class="btn-group"  [ngClass]="{ 'is-invalid': submitted && f['gender'].errors }" formControlName="gender" role="group" id="gender">
+          <div class="form-check form-check-inline">
+            <input class="form-check-input" type="radio" formControlName="gender" id="inlineRadio1" value="Female">
+            <label class="form-check-label" for="inlineRadio1">Female</label>
+          </div>
+          <div class="form-check form-check-inline">
+            <input class="form-check-input" type="radio"  formControlName="gender"  id="inlineRadio2" value="Male">
+            <label class="form-check-label" for="inlineRadio2">Male</label>
+          </div>
+          <div class="form-check form-check-inline">
+            <input class="form-check-input" type="radio"  formControlName="gender" id="inlineRadio3" value="Others">
+            <label class="form-check-label" for="inlineRadio3">Others</label>
+          </div>
+        </div>
+        <div *ngIf="submitted && f['gender'].errors" class="invalid-feedback">
+          <div *ngIf="f['gender'].errors['required']">gender is required</div>
+          </div>
+        </div>
+      </div>
+   <div class="mb-2">
+      <div class="form-group">
+      <label for="password" class="form-label">Password<span>*</span></label>
+      <input type="password"  formControlName="password" class="form-control"  [ngClass]="{ 'is-invalid': submitted && f['password'].errors }" id="exampleInputPassword1">
+      <div *ngIf="submitted && f['password'].errors" class="invalid-feedback">
+        <div *ngIf="f['password'].errors['required']">Password is required</div>
+        <div *ngIf="f['password'].errors['minlength']">Password at least 6</div>
+      </div>
+    </div>
+    </div>
+    <div class="mb-2">
+      <div class="form-group">
+      <label for="repassword" class="form-label">Confirm Password<span>*</span></label>
+      <input type="password"  formControlName="repassword" class="form-control"  [ngClass]="{ 'is-invalid': submitted && f['repassword'].errors }" id="repassword">
+      <div *ngIf="submitted && f['repassword'].errors" class="invalid-feedback">
+        <div *ngIf="f['repassword'].errors['required']">Confirm Password is required</div>
+        <div *ngIf="f['repassword'].errors['MustMatch']">Password did't match</div>
+      </div>
+    </div>
+   </div>
+   <input type="submit" value="Submit">
+  </form>
+</div>
+  </div>
+</div>

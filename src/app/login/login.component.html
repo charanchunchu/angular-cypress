@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<!-- Coding By CodingNepal - youtube.com/codingnepal -->
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Login Form</title>
+
+  </head>
+  <body>
+    <div class="center">
+      <h1>Login</h1>
+      <form [formGroup]="registerform" (ngSubmit)="onSubmit(this.registerform.value)">
+        <div class="mb-2">
+          <div class="form-group">
+            <label for="exampleInputEmail1" class="form-label">Email address<span>*</span></label>
+            <input type="email" formControlName="email" class="form-control"
+              [ngClass]="{ 'is-invalid': submitted && f['email'].errors }" id="exampleInputEmail1"
+              aria-describedby="emailHelp">
+            <div *ngIf="submitted && f['email'].errors" class="invalid-feedback">
+              <div *ngIf="f['email'].errors['required']">Email is required</div>
+            </div>
+          </div>
+        </div>
+        <div class="mb-2">
+          <div class="form-group">
+            <label for="password" class="form-label">Mobile<span>*</span></label>
+            <input type="number" formControlName="mobile" class="form-control"
+              [ngClass]="{ 'is-invalid': submitted && f['mobile'].errors }" id="exampleInputPassword1">
+            <div *ngIf="submitted && f['mobile'].errors" class="invalid-feedback">
+              <div *ngIf="f['mobile'].errors['required']">Password is required</div>
+              <div *ngIf="f['mobile'].errors['minlength']">Password at least 10</div>
+            </div>
+          </div>
+        </div>
+      <button type="submit">submit</button>
+      </form>
+    </div>
+
+  </body>
+</html>
+
+
